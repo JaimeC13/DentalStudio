@@ -34,3 +34,21 @@ export const crearEspecialista = async (data:any) => {
     }
 }
 
+export const obtenerEspecialistas = async () => {
+    return await Especialista.findAll();
+}
+
+export const eliminarEspecialista = async (id:number) => {
+    const especialista = await Especialista.findByPk(id);
+    
+    if (!especialista) {
+        throw new Error('Especialista no encontrado');
+    }
+
+    return await especialista.destroy();
+
+
+
+
+}
+

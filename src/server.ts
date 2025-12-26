@@ -8,14 +8,16 @@ import autenticacionRouter from './routes/autenticacionRouter';
 
 
 
+
 async function conectBD() {
     try {
         await db.authenticate();
-        db.sync();
+        await db.sync({ alter: true }); 
         console.log('Database connected');
 
     } catch (error) {
-        console.log('error');
+        console.log('error', error);       
+
     }
     
 }

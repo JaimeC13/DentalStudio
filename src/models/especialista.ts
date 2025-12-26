@@ -16,17 +16,17 @@ export default class Especialista extends Model {
     @Column({
         type: DataType.STRING(30)
     })
-    apellido!: string
+    declare apellido: string
 
     @Column({
         type: DataType.STRING(30)
     })
-    especialidad!: string
+    declare especialidad: string
 
     @Column({
         type: DataType.INTEGER
     })
-    experiencia!: number
+    declare experiencia: number
 
    
 

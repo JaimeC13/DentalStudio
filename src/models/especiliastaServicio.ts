@@ -11,16 +11,18 @@ export default class EspecialistaServicio extends Model {
     @ForeignKey(() => Especialista)
     @Column({
         type: DataType.INTEGER, 
+        onDelete: 'CASCADE',   
     })
-    especialistaId!: number;
-    
+   declare especialistaId: number;
+
 
     @ForeignKey(()=> Servicio )
     @Column({
         type: DataType.INTEGER,
+        onDelete: 'CASCADE',    
 
     })
-    servicioId!: number;
+    declare servicioId: number;
 
 
 }

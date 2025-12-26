@@ -11,7 +11,7 @@ static createServicio = async (req:Request , res: Response) => {
     try {
         const data: servicioInterface = req.body; 
         const serviceSave = await crearServicio(data);
-        res.status(201).json(serviceSave);
+        res.status(201).json("Servicio creado correctamente");
     } 
     
     catch (error) {

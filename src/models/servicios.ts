@@ -1,6 +1,7 @@
-import {Table, Column, Model, DataType, BelongsToMany, ForeignKey} from 'sequelize-typescript';
+import {Table, Column, Model, DataType, BelongsToMany, HasMany} from 'sequelize-typescript';
 import Especialista from './especialista';
 import EspecialistaServicio from './especiliastaServicio';
+import Cita from './citas';
 
 
 
@@ -22,6 +23,9 @@ export default class Servicio extends Model {
 
      @BelongsToMany(() => Especialista, ()=> EspecialistaServicio )
       epecialista!: Especialista[];
+
+      @HasMany(() => Cita)
+        citas!: Cita[];
 
 
 

@@ -1,5 +1,6 @@
 import {Table, Column, Model, DataType, HasOne, ForeignKey, } from 'sequelize-typescript';
 import Especialista from './especialista';
+import Servicio from './servicios';
 
 
 
@@ -9,10 +10,12 @@ import Especialista from './especialista';
 
 export default class Cita extends Model {
 
-    @Column({
+   
+
+ @Column({
         type: DataType.STRING(30)
     })
-    declare name: string
+    declare nombre: string
 
     @Column({
         type: DataType.STRING(30)
@@ -34,6 +37,11 @@ export default class Cita extends Model {
     })
     declare fecha: Date
 
+    @Column({
+        type: DataType.STRING(10)
+    })
+    declare hora: string
+
    @ForeignKey(() => Especialista)
    @Column({
         type: DataType.INTEGER,
@@ -41,7 +49,12 @@ export default class Cita extends Model {
    })
    especialistaId!: number;
 
-
+   @ForeignKey(() => Servicio)
+   @Column({
+        type: DataType.INTEGER,
+        allowNull: false
+   })
+   servicioId!: number;
 
 
 

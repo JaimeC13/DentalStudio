@@ -13,6 +13,8 @@ import { crearUsuario } from '../service/autenticaciónService';
                 }
                 catch (error) {
                     res.status(500).json({message: 'Error interno del servidor'})
+                    console.error(error);
+                    console.log(req.body);
                 }
             }
 

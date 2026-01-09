@@ -1,0 +1,28 @@
+// controllers/pacienteController.ts
+import Paciente from '../models/paciente';
+
+import { Request, Response } from 'express';
+
+export const crearPaciente =  async(req: Request, res: Response) => {
+
+    try {
+        const datos = req.body;
+        const pacienteNuevo = await Paciente.create(datos);
+        res.status(200).json(datos)
+
+    }
+
+
+    catch (error) {
+        res.status(500).json({message: 'error'})
+    }
+    
+    // El usuario manda { nombre: "Juan", edad: 30 }
+    const datos = req.body;
+
+    // Guardamos en la BD
+    const pacienteNuevo = Paciente.create(datos);
+
+    // Respondemos
+  
+}
